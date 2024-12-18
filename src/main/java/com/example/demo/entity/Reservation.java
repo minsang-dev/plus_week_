@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.example.demo.status.ReservationStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 
@@ -25,9 +26,10 @@ public class Reservation {
 
     private LocalDateTime endAt;
 
-    private String status; // PENDING, APPROVED, CANCELED, EXPIRED
+    @Enumerated(EnumType.STRING)
+    private ReservationStatus status; // PENDING, APPROVED, CANCELED, EXPIRED
 
-    public Reservation(Item item, User user, String status, LocalDateTime startAt, LocalDateTime endAt) {
+    public Reservation(Item item, User user, ReservationStatus status, LocalDateTime startAt, LocalDateTime endAt) {
         this.item = item;
         this.user = user;
         this.status = status;
@@ -37,7 +39,12 @@ public class Reservation {
 
     public Reservation() {}
 
-    public void updateStatus(String status) {
+    public void updateStatus(ReservationStatus status) {
         this.status = status;
     }
+
+    public ReservationStatus getStatus(){
+        return status;
+    }
+
 }
