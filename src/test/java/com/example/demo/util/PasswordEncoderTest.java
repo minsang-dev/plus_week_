@@ -15,7 +15,7 @@ class PasswordEncoderTest {
         String encodedPassword = PasswordEncoder.encode(rawPassword);
 
         // then
-        assertNotEquals("qwer13224", encodedPassword);
+        assertNotEquals(rawPassword, encodedPassword);
     }
 
     @Test
