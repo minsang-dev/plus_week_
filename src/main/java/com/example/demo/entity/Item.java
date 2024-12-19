@@ -28,13 +28,6 @@ public class Item {
     @JoinColumn(name = "manager_id")
     private User manager;
 
-    /**
-     * @NotNull 이 필드에 추가되면
-     * SQL이 실제로 데이터베이스에 반영되기 직전에 예외를 발생시킨다.
-     *
-     * @NotNull 이 없을 때는
-     * 실제로 데이터베이스에 SQL이 반영되고 나서 예외가 발생한다.
-     */
     @NotNull
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, columnDefinition = "varchar(20) default 'PENDING'")
