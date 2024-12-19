@@ -62,6 +62,7 @@ public class ReservationService {
                     reservation.getId(),
                     user.getNickname(),
                     item.getName(),
+                    reservation.getStatus(),
                     reservation.getStartAt(),
                     reservation.getEndAt()
             );
@@ -87,6 +88,7 @@ public class ReservationService {
                         reservation.getId(),
                         reservation.getUser().getNickname(),
                         reservation.getItem().getName(),
+                        reservation.getStatus(),
                         reservation.getStartAt(),
                         reservation.getEndAt()
                 ))

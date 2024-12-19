@@ -1,7 +1,10 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.ReservationRequestDto;
+import com.example.demo.dto.ReservationResponseDto;
 import com.example.demo.service.ReservationService;
+import com.example.demo.status.ReservationStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -22,7 +25,7 @@ public class ReservationController {
     }
 
     @PatchMapping("/{id}/update-status")
-    public void updateReservation(@PathVariable Long id, @RequestBody String status) {
+    public void updateReservation(@PathVariable Long id, @RequestBody ReservationStatus status) {
         reservationService.updateReservationStatus(id, status);
     }
 
